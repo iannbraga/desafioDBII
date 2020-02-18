@@ -1,0 +1,201 @@
+
+-- Clientes da Empresa a
+create table clienteA(
+	id_cliente int(2) auto_increment,
+    nome varchar(50),
+    cpf varchar(11) unique,
+    data_nasc date,
+    primary key (id_cliente)
+);
+
+-- Clientes da Empresa a
+insert into clienteA (nome, cpf, data_nasc) values ("Luís Victor", "38950484536", '1987-05-21');
+insert into clienteA (nome, cpf, data_nasc) values ("Matheus Rafael", "44689680019", '1993-09-02');
+insert into clienteA (nome, cpf, data_nasc) values ("Pedro Henrique", "94294328932", '1990-08-03');
+insert into clienteA (nome, cpf, data_nasc) values ("Gabrielly Mariane","48332090636", '2000-07-04');
+insert into clienteA (nome, cpf, data_nasc) values ("Jaqueline Araújo", "11229400842", '1985-06-05');
+insert into clienteA (nome, cpf, data_nasc) values ("Rosângela Melissa", "48842634050", '1975-05-06');
+insert into clienteA (nome, cpf, data_nasc) values ("Caio Campos", "41686243235", '1996-04-07');
+insert into clienteA (nome, cpf, data_nasc) values ("Janaina Silva", "88200049507", '2001-03-08');
+insert into clienteA (nome, cpf, data_nasc) values ("Jurema Pereira", "66025317780", '1991-02-09');
+insert into clienteA (nome, cpf, data_nasc) values ("Jubisclelson Pinto", "90838449786", '2000-01-10');
+
+-- Produtos da Empresa A
+create table produtoA(
+	id_produto int(2) auto_increment,
+    descricao varchar(50),
+	valor int(15),
+	primary key (id_produto)
+);
+
+-- // Produtos da Empresa A
+insert into produtoA (descricao, valor) values ("Uno Mille", "11000");
+insert into produtoA (descricao, valor) values ("Fiat Palio", "22000");
+insert into produtoA (descricao, valor) values ("Celta", "33000");
+insert into produtoA (descricao, valor) values ("Fiesta", "54000");
+insert into produtoA (descricao, valor) values ("Honda Civic", "50000");
+insert into produtoA (descricao, valor) values ("Strada", "35000");
+insert into produtoA (descricao, valor) values ("Van", "45000");
+insert into produtoA (descricao, valor) values ("Caminhao", "65000");
+insert into produtoA (descricao, valor) values ("Ambulancia", "15000");
+insert into produtoA (descricao, valor) values ("Viatura", "25000");
+
+-- Vendas da empresa A
+create table vendaA(
+	quant int(10),
+	dataV varchar(12),
+	parcelas int(4),
+	statusV int(10),
+	id_produto int(2),
+	constraint fk_produto_vendaA foreign key (id_produto) references produtoA (id_produto),
+	id_cliente int(2),
+	constraint fk_cliente_vendaA foreign key (id_cliente) references clienteA (id_cliente)
+);
+
+-- Vendas da empresa A
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (1, 1, 2, "02-02-2000", 12, 3);
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (2, 8, 2, "02-02-2000", 10, 6);
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (3, 2, 4, "03-02-2000", 11, 4);
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (4, 3, 5, "04-02-2000", 9, 5);
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (5, 4, 7, "05-02-2000", 7, 7);
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (6, 5, 2, "06-02-2000", 8, 5);
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (7, 6, 5, "07-02-2000", 5, 2);
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (8, 7, 4, "08-02-2000", 4, 1);
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (9, 9, 6, "09-02-2000", 6, 2);
+insert into vendaA (id_produto, id_cliente, quant, dataV, parcelas, statusV) values (10, 10, 2, "10-02-2000", 3, 0);
+
+
+-- Clientes da Empresa B
+create table clienteB(
+  id_cliente int(2) auto_increment,
+  nome VARCHAR(45),
+  cpf VARCHAR(11) unique,
+  idade VARCHAR(2),
+  fone VARCHAR(45),
+  profissao VARCHAR(45),
+  dia_aniversario VARCHAR(2),
+  mes_aniversario VARCHAR(2),
+  PRIMARY KEY (id_cliente)
+  );
+
+-- Clientes da Empresa B
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("Cleiton Alves", "71916578047", 19, "984123445", "marceneiro", "2", "12");
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("David Oliveira", "25770346019", 19, "984123445", "marceneiro", "3", "11");
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("Karine Maria", "61583644016", 19, "984123445", "marceneiro", "4", "2");
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("Gustavo Pereira", "09914100090", 19, "984123445", "marceneiro", "5", "3");
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("Maria Nainam", "51977406041", 19, "984123445", "marceneiro", "6", "5");
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("Castro Silvino", "56995698045", 19, "984123445", "marceneiro", "7", "15");
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("Alvaro Santos", "71553170040", 19, "984123445", "marceneiro", "8", "14");
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("Fulano Gonçalves", "62397012030", 19, "984123445", "vendedor", "4", "10");
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("Ciclano Carvalho", "82662311096", 19, "984123445", "pedreiro", "9", "12");
+insert into clienteB (nome, cpf, idade, fone, profissao, dia_aniversario, mes_aniversario) values("Beltrano Oliveira", "36860560037", 19, "984123445", "pintor", "6", "11");
+
+
+-- Produtos da Empresa B
+CREATE TABLE produtoB(
+  id_produto INT auto_increment,
+  descricao VARCHAR(45),
+  valor INT,
+  PRIMARY KEY (id_produto)
+  );
+
+-- Produtos da Empresa B
+insert into produtoB (descricao, valor) values ("Geely", "10500");
+insert into produtoB (descricao, valor) values ("McLaren", "222000");
+insert into produtoB (descricao, valor) values ("Rely", "30500");
+insert into produtoB (descricao, valor) values ("Tata", "40900");
+insert into produtoB (descricao, valor) values ("Buggy", "50500");
+insert into produtoB (descricao, valor) values ("Kart", "35700");
+insert into produtoB (descricao, valor) values ("Cadillac", "45800");
+insert into produtoB (descricao, valor) values ("Saab", "60500");
+insert into produtoB (descricao, valor) values ("Mazda", "150000");
+insert into produtoB (descricao, valor) values ("Menon", "50050");
+
+-- Vendas da Empresa B
+CREATE TABLE vendaB(
+  id_venda INT auto_increment,
+  id_produto INT,
+  id_cliente INT,
+  valor INT,
+  dataV VARCHAR(45),
+  saldo VARCHAR(45),
+  PRIMARY KEY (id_venda),
+  constraint fk_produto_vendaB foreign key (id_produto) references produtoB (id_produto),
+  constraint fk_cliente_vendaB foreign key (id_cliente) references clienteB (id_cliente)
+);
+
+-- Vendas da Empresa B
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (1, 1, 10000, "02-10-2018", 250);
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (1, 2, 21000, "02-10-2018", 250);
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (1, 3, 21000, "02-10-2018", 250);
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (2, 4, 541000, "02-10-2018", 250);
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (2, 5, 121000, "02-10-2018", 250);
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (2, 6, 10000, "02-10-2018", 250);
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (3, 7, 15000, "02-10-2018", 250);
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (3, 5, 10600, "02-10-2018", 250);
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (8, 9, 10800, "02-10-2018", 250);
+  insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) values (9, 10, 10020, "02-10-2018", 250);
+
+
+
+
+
+// Comandos MySQL
+-- alterando foreign key para cascata
+-- Empresa A
+alter table vendaA drop foreign key fk_produto_vendaA; 
+alter table vendaA add constraint fk_produto_vendaA foreign key (id_produto) references produtoA (id_produto) on update cascade;
+alter table vendaA drop foreign key fk_cliente_vendaA; 
+alter table vendaA add constraint fk_cliente_vendaA foreign key (id_cliente) references clienteA (id_cliente) on update cascade;
+
+-- Empresa B
+alter table vendaB drop foreign key fk_produto_vendaB; 
+alter table vendaB add constraint fk_produto_vendaB foreign key (id_produto) references produtoB (id_produto) on update cascade;
+alter table vendaB drop foreign key fk_cliente_vendaB; 
+alter table vendaB add constraint fk_cliente_vendaB foreign key (id_cliente) references clienteB (id_cliente) on update cascade;
+
+-- inserindo clientes
+insert into clienteB (nome, cpf, idade, dia_aniversario, mes_aniversario) select nome, cpf, date_format(current_date(), '%Y')-date_format(data_nasc, '%Y'), date_format(data_nasc, '%d'), date_format(data_nasc, '%m') from clienteA;
+
+-- altera id dos clientes de A que foram para B
+update clienteA as a inner join clienteB as b set a.id_cliente = b.id_cliente where a.cpf=b.cpf;
+
+-- inserindo produtos
+insert into produtoB (descricao, valor) select descricao, valor from produtoA;
+
+-- altera id dos produtos de A que foram para B
+update produtoA as a inner join produtoB as b set a.id_produto = b.id_produto where a.descricao = b.descricao;
+
+-- inserindo vendas da A na B
+insert into vendaB (id_produto, id_cliente, valor, dataV, saldo) select va.id_produto, va.id_cliente, pa.valor, va.dataV, round(((pa.valor * va.quant) / parcelas) * (va.parcelas - va.statusV),0) from vendaA as va join produtoA as pa on va.id_produto = pa.id_produto;
+
+
+
+
+Solucionar Desafio DB
+
+1 - altero as chaves estrangeiras para modo cascata;
+-- Empresa A
+alter table vendaA drop foreign key fk_produto_vendaA; 
+alter table vendaA add constraint fk_produto_vendaA foreign key (id_produto) references produtoA (id_produto) on update cascade;
+alter table vendaA drop foreign key fk_cliente_vendaA; 
+alter table vendaA add constraint fk_cliente_vendaA foreign key (id_cliente) references clienteA (id_cliente) on update cascade;
+
+-- Empresa B
+alter table vendaB drop foreign key fk_produto_vendaB; 
+alter table vendaB add constraint fk_produto_vendaB foreign key (id_produto) references produtoB (id_produto) on update cascade;
+alter table vendaB drop foreign key fk_cliente_vendaB; 
+alter table vendaB add constraint fk_cliente_vendaB foreign key (id_cliente) references clienteB (id_cliente) on update cascade;
+
+2 - insiro os clientes de A em B
+insert into clienteB (nome, cpf, idade, dia_aniversario, mes_aniversario) select nome, cpf, date_format(current_date(), '%Y')-date_format(data_nasc, '%Y'), date_format(data_nasc, '%d'), date_format(data_nasc, '%m') from clienteA;
+
+3 - busco os clientes em B que pertecem a A de acordo com o cpf e atualizo o id em A
+update clienteA as a inner join clienteB as b set a.id_cliente = b.id_cliente where a.cpf=b.cpf;
+
+4 - insiro os produtos de A em B
+insert into produtoB (descricao, valor) select descricao, valor from produtoA;
+
+5 - busco os produtos em B que pertenciam a A de acrodo com a descricao e atualizo o id em A
+update produtoA as a inner join produtoB as b set a.id_produto = b.id_produto where a.descricao = b.descricao;
+

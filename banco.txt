@@ -1,0 +1,36 @@
+-- tabelas
+create table empresaA(
+	id int(2) auto_increment,
+    dataA date,
+    primary key (id)
+);
+
+create table empresaB(
+	id int(2) auto_increment,
+    dia varchar(2),
+    mes varchar(2),
+    primary key (id)
+);
+
+-- valores teste
+insert into empresaA (dataA) values ('2000-03-02');
+insert into empresaA (dataA) values ('2020-02-12');
+
+insert into empresaB (dia, mes) values ('28', '12');
+insert into empresaB (dia, mes) values ('08', '02');
+
+-- inserindo dados da empresaA para a empresaB
+insert into empresab (dia, mes) select date_format(dataA, '%d'), date_format(dataA, '%m') from empresaA;
+
+-- validando se valores foram inseridos
+select * from empresab
+
+
+-- o nosso erro foi criar os campos 'dia' e 'mes' sendo 'date'
+-- date só recebe data completa: 2000-01-03 ano-dia-mês;
+-- o jeito certo
+-- empresaA => data_nasc date
+-- empresaB => dia varchar
+-- 			=> mes varchar
+
+
