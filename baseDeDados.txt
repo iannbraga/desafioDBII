@@ -1,4 +1,4 @@
-
+﻿
 -- Clientes da Empresa a
 create table clienteA(
 	id_cliente int(2) auto_increment,
@@ -198,4 +198,15 @@ insert into produtoB (descricao, valor) select descricao, valor from produtoA;
 
 5 - busco os produtos em B que pertenciam a A de acrodo com a descricao e atualizo o id em A
 update produtoA as a inner join produtoB as b set a.id_produto = b.id_produto where a.descricao = b.descricao;
+
+
+6 - Select com Inner Join entre as tabelas
+select v.id_venda, v.id_produto, p.descricao, v.id_cliente, c.nome, c.cpf, v.dataV from vendab as v inner join produtob as p inner join clienteb as c on v.id_produto = p.id_produto and v.id_cliente = c.id_cliente;
+
+
+
+
+
+
+
 
